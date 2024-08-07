@@ -1,0 +1,110 @@
+#############################################
+## PHỤC HỒI DATA Ở MYSQL XAMP           #####
+## CÁC FILE: XỬ LÝ                      #####
+## 1, fix_mariadb.bat                   #####
+## 2, fix_mariadb.ps1                   #####
+## 3, Repair-data-in-mysql-xampp.ps1    #####
+## Tác giả: ductriseo                   #####
+## https://ductriseo.io                 #####
+#############################################
+### **Hướng Dẫn Chạy Các Script**
+
+Khi sửa chữa và nâng cấp MariaDB/MySQL, việc chạy các script theo thứ tự đúng là rất quan trọng để đảm bảo quá trình diễn ra suôn sẻ và không gây ra lỗi. Dưới đây là hướng dẫn chi tiết về cách chạy các script `fix_mariadb.ps1` và `fix_mariadb.bat`, cùng với thứ tự chính xác để thực hiện chúng.
+
+### **1. Chạy `fix_mariadb.bat` (Batch File)**
+
+#### **Mục Đích:**
+- Script này dừng dịch vụ MySQL, xóa các tệp log Aria, chạy `aria_chk` để sửa chữa các bảng Aria, sau đó khởi động lại dịch vụ MySQL và thực hiện nâng cấp.
+
+#### **Hướng Dẫn Chạy:**
+
+1. **Mở Command Prompt với Quyền Quản Trị:**
+   - Nhấp chuột phải vào biểu tượng Command Prompt và chọn “Run as administrator”.
+
+2. **Điều Hướng Đến Thư Mục Chứa File Batch:**
+   - Sử dụng lệnh `cd` để di chuyển đến thư mục chứa tệp `.bat`. Ví dụ:
+     ```batch
+     cd C:\Path\To\Your\BatchFile
+     ```
+
+3. **Chạy Tệp Batch:**
+   - Nhấp đúp vào tệp `.bat` hoặc chạy từ Command Prompt bằng cách:
+     ```batch
+     fix_upgrade_mariadb.bat
+     ```
+
+4. **Theo Dõi Quá Trình:**
+   - Script sẽ thực hiện các bước dừng dịch vụ MySQL, xóa tệp log, sửa chữa bảng Aria, và khởi động lại dịch vụ. Nó cũng sẽ yêu cầu mật khẩu root của MySQL khi chạy `mysql_upgrade`.
+
+5. **Kiểm Tra Kết Quả:**
+   - Đảm bảo rằng dịch vụ MySQL đã khởi động lại thành công và kiểm tra các nhật ký để đảm bảo không có lỗi nghiêm trọng.
+
+### **2. Chạy `fix_mariadb.ps1` (PowerShell Script)**
+
+#### **Mục Đích:**
+- Script này thực hiện các bước tương tự như script batch, nhưng thông qua PowerShell, bao gồm dừng dịch vụ MySQL, xóa các tệp log Aria, chạy `aria_chk` để sửa chữa các bảng Aria, khởi động lại dịch vụ, và thực hiện nâng cấp.
+
+#### **Hướng Dẫn Chạy:**
+
+1. **Mở PowerShell với Quyền Quản Trị:**
+   - Nhấp chuột phải vào biểu tượng PowerShell và chọn “Run as administrator”.
+
+2. **Điều Hướng Đến Thư Mục Chứa File Script:**
+   - Sử dụng lệnh `cd` để di chuyển đến thư mục chứa tệp `.ps1`. Ví dụ:
+     ```powershell
+     cd C:\Path\To\Your\Script
+     ```
+
+3. **Chạy Script PowerShell:**
+   - Chạy script bằng lệnh:
+     ```powershell
+     .\fix_upgrade_mariadb.ps1
+     ```
+
+4. **Theo Dõi Quá Trình:**
+   - Script sẽ thực hiện các bước dừng dịch vụ MySQL, xóa tệp log, sửa chữa bảng Aria, và khởi động lại dịch vụ. Nó cũng sẽ yêu cầu mật khẩu root của MySQL khi chạy `mysql_upgrade`.
+
+5. **Kiểm Tra Kết Quả:**
+   - Đảm bảo rằng dịch vụ MySQL đã khởi động lại thành công và kiểm tra các nhật ký để đảm bảo không có lỗi nghiêm trọng.
+
+### **Thứ Tự Chạy Script**
+
+1. **Đầu tiên, chạy `fix_mariadb.bat`:** Sử dụng script batch nếu bạn muốn một phương pháp đơn giản và dễ thực hiện mà không cần cấu hình PowerShell.
+
+2. **Tiếp theo, chạy `fix_mariadb.ps1`:** Sử dụng script PowerShell nếu bạn cần thêm tính năng hoặc muốn sử dụng PowerShell cho việc tự động hóa nâng cao.
+
+### **Lưu Ý Quan Trọng**
+
+- **Quyền Quản Trị:** Đảm bảo rằng bạn đang chạy các script với quyền quản trị để thực hiện các thao tác dừng/bắt đầu dịch vụ và chạy các lệnh nâng cấp.
+- **Đường Dẫn Đến Công Cụ:** Xác minh rằng `aria_chk` và `mysql_upgrade` có trong PATH của hệ thống hoặc cung cấp đường dẫn đầy đủ trong các script.
+- **Mật Khẩu:** Cả hai script đều yêu cầu mật khẩu root của MySQL. Đảm bảo bạn có thông tin xác thực chính xác.
+- **Sao Lưu Dữ Liệu:** Luôn sao lưu dữ liệu trước khi thực hiện các thao tác này để tránh mất mát dữ liệu.
+- **Mở các File bằng Nodepad:** Tìm các địa chỉ và sửa chúng cho phù hợp với thư mục chứa tệp của bạn.
+
+Chạy các script theo thứ tự trên sẽ giúp bạn sửa chữa và nâng cấp MariaDB/MySQL một cách hiệu quả và giảm thiểu nguy cơ lỗi.
+
+------
+##### XỬ LÝ LỖI DƯỚI ĐÂY ###################################################################################################################
+##### 11:06:22 0 [ERROR] Aborting
+##### 11:22:01 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 26128
+Cannot find checkpoint record at LSN (1,0x55ae)
+##### 11:22:01 0 [ERROR] mysqld.exe: Aria recovery failed. Please run aria_chk -r on all Aria tables and delete all aria_log.######## files
+##### 11:22:01 0 [ERROR] Plugin 'Aria' registration as a STORAGE ENGINE failed.
+##### 11:22:01 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+##### 11:22:01 0 [Note] InnoDB: Uses event mutexes
+##### 11:22:01 0 [Note] InnoDB: Compressed tables use zlib 1.3
+##### 11:22:01 0 [Note] InnoDB: Number of pools: 1
+##### 11:22:01 0 [Note] InnoDB: Using SSE2 crc32 instructions
+##### 11:22:01 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+##### 11:22:01 0 [Note] InnoDB: Completed initialization of buffer pool
+##### 11:22:01 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+##### 11:22:01 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+##### 11:22:01 0 [Note] InnoDB: Setting file 'E:\Programs\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+##### 11:22:01 0 [Note] InnoDB: File 'E:\Programs\xampp\mysql\data\ibtmp1' size is now 12 MB.
+##### 11:22:01 0 [Note] InnoDB: 10.4.32 started; log sequence number 1954508; transaction id 1771
+##### 11:22:01 0 [Note] InnoDB: Loading buffer pool(s) from E:\Programs\xampp\mysql\data\ib_buffer_pool
+##### 11:22:01 0 [Note] Plugin 'FEEDBACK' is disabled.
+##### 11:22:01 0 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+##### 11:22:01 0 [ERROR] Failed to initialize plugins.
+##### 11:22:01 0 [ERROR] Aborting
+##############################################################################################################################################
