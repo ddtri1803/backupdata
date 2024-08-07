@@ -1,12 +1,14 @@
 # Problem:
-# 11:06:22 SA  [mysql] 	Status change detected: running
-# 11:06:23 SA  [mysql] 	Status change detected: stopped
-# 11:06:23 SA  [mysql] 	Error: MySQL shutdown unexpectedly.
-# 11:06:23 SA  [mysql] 	This may be due to a blocked port, missing dependencies, 
-# 11:06:23 SA  [mysql] 	improper privileges, a crash, or a shutdown by another method.
-# 11:06:23 SA  [mysql] 	Press the Logs button to view error logs and check
-# 11:06:23 SA  [mysql] 	the Windows Event Viewer for more clues
-# 11:06:23 SA  [mysql] 	entire log window on the forums
+11:06:22 SA  [mysql] 	Status change detected: running
+11:06:23 SA  [mysql] 	Status change detected: stopped
+11:06:23 SA  [mysql] 	Error: MySQL shutdown unexpectedly.
+11:06:23 SA  [mysql] 	This may be due to a blocked port, missing dependencies, 
+11:06:23 SA  [mysql] 	improper privileges, a crash, or a shutdown by another method.
+11:06:23 SA  [mysql] 	Press the Logs button to view error logs and check
+11:06:23 SA  [mysql] 	the Windows Event Viewer for more clues
+11:06:23 SA  [mysql] 	If you need more help, copy and post this
+11:06:23 SA  [mysql] 	entire log window on the forums
+
 # backupdata
 This will backup mysql/data your current mysql/data and replace it with the backup data.
 As highlighted by some users, this is merely a temporary workaround and not a permanent fix. It’s strongly advised that once you’ve recovered your data, you back it up and then reinstall XAMPP, since the issue is related to a malfunction in certain XAMPP files rather than the databases themselves.
